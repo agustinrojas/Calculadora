@@ -12,7 +12,7 @@ namespace PooVueling
         {
             ICalculadora calc1 = new Calculadora();
 
-            int v;
+            int v, num1=0, num2=0, resultado = 0;
             Console.WriteLine("Escribe el numero de la operacion que deseas realizar: ");
             Console.WriteLine("1- Suma: ");
             Console.WriteLine("2-Resta: ");
@@ -21,80 +21,50 @@ namespace PooVueling
             Console.WriteLine("5-Salir: ");
             v = int.Parse(Console.ReadLine());
 
-            //Console.WriteLine(v);
-            //Console.ReadLine();
-
             switch (v)
             {
                 case 1:
                     Console.WriteLine("Has elegido Sumar");
-                    Console.WriteLine("Introduce el primer numero");
-                    int num1 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Introduce el segundo numero");
-                    int num2 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("El resultado es: ");
-                    Console.WriteLine(calc1.Suma(num1, num2));
-                    Console.ReadLine();
+                    PedirNumeros(ref num1, ref num2);
+
+                    resultado = calc1.Suma(num1, num2);                    
                     break;
                 case 2:
                     Console.WriteLine("Has elegido Restar");
-                    Console.WriteLine("Introduce el primer numero");
-                    int num3 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Introduce el segundo numero");
-                    int num4 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("El resultado es: ");
-                    Console.WriteLine(calc1.Resta(num3, num4));
-                    Console.ReadLine();
+                    PedirNumeros(ref num1, ref num2);
+
+                    resultado = calc1.Resta(num1, num2);
                     break;
                case 3:
                     Console.WriteLine("Has elegido Multiplicar");
-                    Console.WriteLine("Introduce el primer numero");
-                    int num5 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Introduce el segundo numero");
-                    int num6 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("El resultado es: ");
-                    Console.WriteLine(calc1.Multiplicacion(num5, num6));
-                    Console.ReadLine();
+                    PedirNumeros(ref num1, ref num2);
+
+                    resultado = calc1.Multiplicacion(num1, num2);
+                    break;
                 case 4:
                     Console.WriteLine("Has elegido Dividir");
-                    Console.WriteLine("Introduce el primer numero");
-                    int num7 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Introduce el segundo numero");
-                    int num8 = int.Parse(Console.ReadLine());
-                    Console.WriteLine("El resultado es: ");
-                    Console.WriteLine(calc1.Multiplicacion(num7, num8));
-                    Console.ReadLine();
+                    PedirNumeros(ref num1, ref num2);
+
+                    resultado = calc1.Division(num1, num2);
                     break;
                 case 5:
                     Console.WriteLine("Has elegido Salir");
-                    break;
+                    return;
                 default:
                     Console.WriteLine("Error");
-                    break;
+                    return;
             }
 
-
-            
+            Console.WriteLine(@"El resultado es: {0}", resultado.ToString());
+            Console.ReadLine();
         }
 
-        public int Division(int num1, int num2)
+        public static void PedirNumeros(ref int num1, ref int num2)
         {
-            throw new NotImplementedException();
-        }
-
-        public int Multiplicacion(int num1, int num2)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Resta(int num1, int num2)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Suma(int num1, int num2)
-        {
-            throw new NotImplementedException();
+            Console.WriteLine("Introduce el primer numero");
+            num1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Introduce el segundo numero");
+            num2 = int.Parse(Console.ReadLine());
         }
     }
 }

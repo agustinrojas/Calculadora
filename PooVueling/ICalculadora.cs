@@ -12,7 +12,5 @@ namespace PooVueling
         int Resta(int num1, int num2);
         int Multiplicacion(int num1, int num2);
         int Division(int num1, int num2);
-
-
     }
 }
